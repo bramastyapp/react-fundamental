@@ -5,20 +5,22 @@ import { useState } from "react";
 
 function Home() {
   const [posts, setPosts] = useState(postsData);
+  const [totalPosts, setTotalPosts] = useState(0);
   const onSearchChange = (value) => {
     const filteredPosts = postsData.filter((item) =>
       item.title.includes(value)
     );
     setPosts(filteredPosts);
+    setTotalPosts(filteredPosts.length);
   };
   return (
     <>
       <h1>Simple Blog</h1>
-      <Search onSearchChange={onSearchChange} />
-      {posts.map(({ title, tags, date }, index) => {
+      <Search onSearchChange={onSearchChange} totalPosts={totalPosts} />
+      {posts.map((props, index) => {
         return (
           <>
-            <Article {...{ title, tags, date }} key={index} />
+            <Article {...props} key={index} />
           </>
         );
       })}
