@@ -1,12 +1,11 @@
 import postsData from "../posts.json";
 import Article from "../components/Article";
 import Search from "../components/Search";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function Home() {
   const [posts, setPosts] = useState(postsData);
   const [totalPosts, setTotalPosts] = useState(0);
-  const [externalPosts, setExternalPosts] = useState([]);
 
   const onSearchChange = (value) => {
     const filteredPosts = postsData.filter((item) =>
@@ -23,7 +22,7 @@ function Home() {
       {posts.map((props, index) => {
         return (
           <>
-            <Article {...props} key={index} />
+            <Article {...props} key={props.id} />
           </>
         );
       })}

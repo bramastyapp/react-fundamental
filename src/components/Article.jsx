@@ -24,7 +24,6 @@ function Article(props) {
       <div>
         <small>ditulis oleh {user.username}</small>
       </div>
-      <br />
     </>
   );
 }
