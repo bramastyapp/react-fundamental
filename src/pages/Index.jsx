@@ -15,19 +15,6 @@ function Home() {
     setPosts(filteredPosts);
     setTotalPosts(filteredPosts.length);
   };
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/todos")
-      .then((response) => response.json())
-      .then((json) => setExternalPosts(json));
-  }, []);
-
-  useEffect(() => {
-    console.log("ada useEffect dari posts");
-  }, [posts]);
-
-  useEffect(() => {
-    console.log("render");
-  });
 
   return (
     <>
@@ -37,15 +24,6 @@ function Home() {
         return (
           <>
             <Article {...props} key={index} />
-          </>
-        );
-      })}
-      <hr />
-      <h3>External Posts</h3>
-      {externalPosts.map((item, index) => {
-        return (
-          <>
-            <div key={index}>- {item.title}</div>
           </>
         );
       })}
