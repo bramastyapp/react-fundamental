@@ -4,12 +4,14 @@ import Home from "../pages/Index";
 import About from "../pages/About";
 import Blog from "../pages/blog";
 import Post from "../pages/blog/_id";
+import ErrorPage from "../components/ErrorPage";
 import { posts, postById } from "../apis/loaders";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout></RootLayout>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
